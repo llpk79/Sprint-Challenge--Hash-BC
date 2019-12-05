@@ -7,13 +7,16 @@ from hashtables import (HashTable,
 
 
 def get_indices_of_item_weights(weights, length, limit):
-    ht = HashTable(16)
-
     """
     YOUR CODE HERE
     """
-
-    return None
+    ht = HashTable(16)
+    for i, weight in enumerate(weights):
+        hash_table_insert(ht, weight, i)
+    for i, weight in enumerate(weights):
+        match = hash_table_retrieve(ht, limit - weight)
+        if match:
+            return max(i, match), min(i, match)
 
 
 def print_answer(answer):
