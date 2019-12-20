@@ -45,8 +45,8 @@ def valid_proof(last_hash, proof):
     """
 
     # TODO: Your code here!
-    old = hashlib.sha3_256(str(last_hash).encode()).hexdigest()
-    new = hashlib.sha3_256(str(proof).encode()).hexdigest()
+    old = hashlib.sha256(str(last_hash).encode()).hexdigest()
+    new = hashlib.sha256(str(proof).encode()).hexdigest()
     if old[-6:] == new[:6]:
         return True
     return False
